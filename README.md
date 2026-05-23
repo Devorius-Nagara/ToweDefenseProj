@@ -256,72 +256,6 @@ Dictionary<string, GameObject>        prototypes; // прототип для rec
 4. Завантажити сцену `Assets/Scenes/SampleScene.unity`.
 5. Натиснути ▶ **Play** — гра запуститься. На сцені лежить лише один GameObject з `GameBootstrap`, решта створюється кодом у `Awake()`.
 
-### Збірка WebGL з командного рядка (headless batch mode)
-
-У репозиторії є готовий скрипт [`Assets/Editor/WebGLBuilder.cs`](Assets/Editor/WebGLBuilder.cs:1):
-
-```bash
-# macOS
-"/Applications/Unity/Hub/Editor/6000.4.8f1/Unity.app/Contents/MacOS/Unity" \
-  -batchmode -nographics -quit \
-  -projectPath "$(pwd)" \
-  -buildTarget WebGL \
-  -executeMethod WebGLBuilder.Build \
-  -logFile Build/build.log
-
-# Windows
-"C:\Program Files\Unity\Hub\Editor\6000.4.8f1\Editor\Unity.exe" ^
-  -batchmode -nographics -quit ^
-  -projectPath "%CD%" ^
-  -buildTarget WebGL ^
-  -executeMethod WebGLBuilder.Build ^
-  -logFile Build\build.log
-```
-
-Тривалість: ~5-30 хв (залежно від системи; перша збірка довша). Результат: `Build/WebGL/`.
-
-```
-Build/WebGL/
-├── index.html
-├── Build/
-│   ├── WebGL.loader.js
-│   ├── WebGL.framework.js
-│   ├── WebGL.data        (≈13 МБ)
-│   └── WebGL.wasm        (≈47 МБ, бо без compression)
-└── TemplateData/         (стилі, фавікон, логотип)
-```
-
-### Збірка з Editor GUI
-
-`File → Build Profiles → WebGL → Build`. Перед збіркою — `Player Settings → Player → WebGL → Publishing Settings → Compression Format → Disabled` (інакше не запрацює на GitHub Pages).
-
-### Локальний прев'ю WebGL білда
-
-GitHub Pages не дозволяє `file://`-доступ, тож потрібен HTTP-сервер:
-
-```bash
-cd Build/WebGL
-python3 -m http.server 8000
-# відкрити http://localhost:8000 у браузері
-```
-
-### Деплой на GitHub Pages
-
-1. Скопіювати вміст `Build/WebGL/` у тимчасову теку.
-2. Створити там файл `.nojekyll` (інакше Pages пропускає файли з підкресленням).
-3. Запушити у гілку `gh-pages`:
-   ```bash
-   cd /tmp/deploy-stage
-   git init -b gh-pages
-   git add -A && git commit -m "Deploy WebGL build"
-   git remote add origin https://github.com/Devorius-Nagara/ToweDefenseProj.git
-   git push --force origin gh-pages
-   ```
-4. `Repository Settings → Pages → Source: gh-pages branch`.
-5. Через ~1 хв гра доступна за адресою `https://devorius-nagara.github.io/ToweDefenseProj/`.
-
----
-
 ## 7. Використані ассети та ШІ-генерація
 
 ### Зовнішні ассети (під ліцензіями для повторного використання)
@@ -341,7 +275,6 @@ python3 -m http.server 8000
 
 * **Спрайти** у `Assets/Resources/Sprites/` — згенеровані помічником на основі промпта про візуальний стиль гри (medieval cartoon, низька деталізація). Власне Python-скрипт-генератор лежить у [`gen_sprites2.py`](gen_sprites2.py) (не виконується під час збірки, лишений як reference).
 * **Музика** у `Assets/Resources/Music/` — згенерована музичним ШІ-сервісом (8-bit / medieval ambient).
-* **Код** — частина бойлерплейту (UI layout, обробка mouse input, sprite-генератори в `SpriteFactory`) написана за допомогою LLM-асистента і доопрацьована вручну. Основна архітектура (state machine, pooling, AI wave builder, balance numbers) — оригінальна.
 
 ### Згенеровано процедурно у рантаймі
 
