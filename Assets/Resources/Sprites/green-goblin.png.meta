@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 22dc868a38bff09b2777040358ae57c1
+TextureImporter:
+  spritePivot: {{x: 0.5, y: 0.5}}
+  spritePixelsPerUnit: 100
+  textureType: 8
+  filterMode: 2
+  maxTextureSize: 2048
+  compressionQuality: 50
+  userData:
+  assetBundleName:
+  assetBundleVariant:

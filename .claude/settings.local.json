@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc \"C:\\\\Users\\\\muzik\\\\Downloads\\\\Розробка 2D гри Tower Defense у Unity.docx\" -o /tmp/tower_defense_task.md)",
+      "Read(//c/Users/muzik/Downloads/**)",
+      "Bash(ls /tmp/)",
+      "Bash(python 'C:\\\\Users\\\\muzik\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\a297e68d-c59e-43e7-a449-89882705c8d1\\\\ba5e0f0c-86e2-4c28-93be-01543e4d053a\\\\skills\\\\docx/scripts/office/unpack.py' 'C:\\\\Users\\\\muzik\\\\Downloads\\\\Розробка 2D гри Tower Defense у Unity.docx' /tmp/docx_unpacked/)",
+      "Bash(pip install:*)",
+      "Bash(python -c ':*)",
+      "Read(//tmp/**)",
+      "Read(//tmp/docx_unpacked/**)",
+      "Bash(dir /tmp/docx_unpacked)",
+      "Bash(cmd /c 'python -c \":*)",
+      "Bash(python)",
+      "Bash(grep -v \"//\")",
+      "Bash(cd /tmp && ls -lt *.png 2>/dev/null | head -5; ls -lt /mnt/c/Users/muzik/AppData/Local/Temp/*.png 2>/dev/null | head -5; find /tmp -name \"*.png\" -newer /tmp -maxdepth 3 2>/dev/null | head -10)",
+      "Bash(ls -lt \"C:/Users/muzik/AppData/Local/Temp/\"*.png 2>/dev/null | head -10; ls -lt \"C:/Users/muzik/Downloads/\"*.png 2>/dev/null | head -5)",
+      "Bash(# Search for the most recent PNG that matches what the user uploaded today *)",
+      "Bash(python3 -c ' *)",
+      "WebSearch",
+      "WebFetch(domain:opengameart.org)",
+      "WebFetch(domain:kenney.nl)",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(cd /d \"D:\\\\Projects\\\\Unity\\\\ToweDefenseProj\")",
+      "Bash(python gen_sprites2.py)",
+      "Bash(ls /Applications/ | grep -i unity; ls ~/Applications 2>/dev/null | grep -i unity; which unity 2>/dev/null)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(ssh -T -o StrictHostKeyChecking=accept-new git@github.com)",
+      "Bash(git ls-remote *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)"
+    ]
+  }
+}
