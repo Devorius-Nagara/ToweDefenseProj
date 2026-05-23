@@ -73,3 +73,7 @@ crashlytics-build.properties
 # =============== OS / misc ===============
 .DS_Store
 Thumbs.db
+
+# Personal notes — not for public repo
+PROJECT_NOTES.md
+
